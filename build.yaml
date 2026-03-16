@@ -1,0 +1,18 @@
+targets:
+  $default:
+    builders:
+      drift_dev:drift_dev:
+        generate_for:
+          - lib/features/*/data/**.dart
+          - lib/core/database/**.dart
+      freezed:freezed:
+        generate_for:
+          - lib/features/*/domain/**.dart
+          - lib/core/**/**.dart
+      riverpod_generator:riverpod_generator:
+        generate_for:
+          - lib/features/*/presentation/**.dart
+          - lib/core/**/**.dart
+      json_serializable:json_serializable:
+        generate_for:
+          - lib/features/*/domain/**.dart

@@ -1,0 +1,21 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "pattern": "\\.dart$",
+        "command": "cd $CLAUDE_PROJECT_DIR && if ls lib/**/*.g.dart 1>/dev/null 2>&1; then dart format -l 80 $(echo $CLAUDE_FILE_PATHS | tr ',' ' ') 2>/dev/null; dart analyze . --no-fatal-infos 2>&1 | head -20; fi"
+      },
+      {
+        "matcher": "Edit|Write",
+        "pattern": "lib/.*\\.dart$",
+        "command": "cd $CLAUDE_PROJECT_DIR && flutter test 2>&1 | tail -20"
+      },
+      {
+        "matcher": "Edit|Write",
+        "pattern": "_test\\.dart$",
+        "command": "cd $CLAUDE_PROJECT_DIR && flutter test \"$(echo $CLAUDE_FILE_PATHS | tr ',' '\\n' | grep '_test\\.dart$' | head -1)\" 2>&1 | tail -30"
+      }
+    ]
+  }
+}
