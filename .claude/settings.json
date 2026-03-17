@@ -1,4 +1,33 @@
 {
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/context7-mcp"]
+    },
+    "mobile-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@anthropic/mobile-mcp@latest"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest",
+        "--browser", "chrome",
+        "--caps", "vision"
+      ]
+    },
+    "xcode-build": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "xcodebuildmcp"]
+    },
+    "android-build": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["mcpandroidbuild"]
+    }
+  },
   "hooks": {
     "PostToolUse": [
       {
