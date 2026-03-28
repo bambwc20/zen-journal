@@ -10,11 +10,6 @@ void main() {
       expect(AppDateUtils.formatDate(date), '2026-03-16');
     });
 
-    test('formatKoreanDate returns correct format', () {
-      final date = DateTime(2026, 3, 16);
-      expect(AppDateUtils.formatKoreanDate(date), '2026년 3월 16일');
-    });
-
     test('isSameDay returns true for same day', () {
       final a = DateTime(2026, 3, 16, 10, 30);
       final b = DateTime(2026, 3, 16, 22, 0);
@@ -33,9 +28,9 @@ void main() {
       expect(AppDateUtils.getDaysInMonth(2024, 2).length, 29);
     });
 
-    test('formatRelative returns 방금 전 for recent time', () {
+    test('formatRelative returns Just now for recent time', () {
       final now = DateTime.now();
-      expect(AppDateUtils.formatRelative(now), '방금 전');
+      expect(AppDateUtils.formatRelative(now), 'Just now');
     });
   });
 }

@@ -1,22 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'core/l10n/app_localizations.dart';
-import 'core/settings/settings_screen.dart';
-import 'core/theme/app_theme.dart';
 import 'core/theme/theme_provider.dart';
+import 'features/zen_journal/presentation/theme/zen_journal_theme.dart';
+import 'features/zen_journal/presentation/routes.dart';
+import 'features/zen_journal/presentation/screens/onboarding_screen.dart';
+import 'features/zen_journal/presentation/screens/paywall_screen.dart';
+import 'shared/widgets/error_boundary.dart';
+
+/// Key used to check onboarding status in redirect.
+const _kOnboardingCompleteKey = 'zen_journal_onboarding_complete';
 
 final _router = GoRouter(
   initialLocation: '/',
+  redirect: (context, state) async {
+    // Check onboarding status on initial launch
+    if (state.matchedLocation == '/') {
+      final prefs = await SharedPreferences.getInstance();
+      final completed = prefs.getBool(_kOnboardingCompleteKey) ?? false;
+      if (!completed) {
+        return '/onboarding';
+      }
+    }
+    return null;
+  },
   routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const _HomeScreen(),
-    ),
-    GoRoute(
-      path: '/settings',
-      builder: (context, state) => const SettingsScreen(),
-    ),
+    // ZenJournal feature routes (shell with bottom nav + sub-routes)
+    ...zenJournalRoutes(),
   ],
 );
 
@@ -28,38 +41,24 @@ class App extends ConsumerWidget {
     final themeMode = ref.watch(appThemeModeProvider);
 
     return MaterialApp.router(
-      title: 'Flutter Boilerplate',
+      title: 'ZenJournal',
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.light(),
-      darkTheme: AppTheme.dark(),
+      theme: ZenJournalTheme.light(),
+      darkTheme: ZenJournalTheme.dark(),
       themeMode: themeMode,
       routerConfig: _router,
-      localizationsDelegates: const [
+      localizationsDelegates: [
         AppLocalizations.delegate,
+        ...FlutterQuillLocalizations.localizationsDelegates,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-    );
-  }
-}
-
-class _HomeScreen extends StatelessWidget {
-  const _HomeScreen();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () => context.push('/settings'),
-          ),
-        ],
-      ),
-      body: const Center(
-        child: Text('Flutter Boilerplate\nfeatures/ 에 앱별 기능을 추가하세요'),
-      ),
+      builder: (context, child) {
+        // Custom error widget for release mode
+        ErrorWidget.builder = (details) {
+          return const ErrorScreen();
+        };
+        return child ?? const SizedBox.shrink();
+      },
     );
   }
 }

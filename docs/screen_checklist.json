@@ -1,0 +1,209 @@
+{
+  "mvp_md_path": "/Users/bambwc20/projects/journal_app/1_ZenJournal_AI_Daily_Journal.md",
+  "platform": "ios_simulator",
+  "interval_minutes": 30,
+  "max_hours": 24,
+  "started_at": "2026-03-19T00:00:00+09:00",
+  "screens": [
+    {
+      "name": "Onboarding (3 steps)",
+      "section": "8",
+      "features": ["3-step intro", "goal setting", "notification time", "paywall trial CTA"],
+      "free_or_paid": "both",
+      "status": "verified",
+      "issues": [
+        {
+          "issue": "Goal setting step missing from onboarding",
+          "priority": "P0",
+          "file": "lib/features/zen_journal/presentation/screens/onboarding_screen.dart",
+          "action": "Added Step 4: goal selection with 5 predefined goals",
+          "resolved": true,
+          "cycle_found": 1,
+          "cycle_resolved": 1
+        },
+        {
+          "issue": "Notification time setting step missing from onboarding",
+          "priority": "P0",
+          "file": "lib/features/zen_journal/presentation/screens/onboarding_screen.dart",
+          "action": "Added Step 5: time picker with default 9:00 PM",
+          "resolved": true,
+          "cycle_found": 1,
+          "cycle_resolved": 1
+        }
+      ],
+      "cycle_verified": 1
+    },
+    {
+      "name": "Home (Today)",
+      "section": "8",
+      "features": ["daily prompt", "mood selector", "quick record button", "streak display", "recent entries"],
+      "free_or_paid": "both",
+      "status": "verified",
+      "issues": [
+        {
+          "issue": "7-day streak bridge widget not triggered on home screen",
+          "priority": "P0",
+          "file": "lib/features/zen_journal/presentation/screens/home_screen.dart",
+          "action": "Added _buildStreakBridge showing BridgeStreak when currentStreak==7 for free users",
+          "resolved": true,
+          "cycle_found": 1,
+          "cycle_resolved": 1
+        },
+        {
+          "issue": "Native ad not placed on home screen",
+          "priority": "P0",
+          "file": "lib/features/zen_journal/presentation/screens/home_screen.dart",
+          "action": "Added NativePromptAd() between prompt section and quick stats",
+          "resolved": true,
+          "cycle_found": 7,
+          "cycle_resolved": 7
+        }
+      ],
+      "cycle_verified": 7
+    },
+    {
+      "name": "Journal Editor",
+      "section": "4-1",
+      "features": ["rich text editor", "photo attachment (max 5)", "voice input STT", "auto-save 3s debounce", "mood selector", "tag selector", "500 char limit (free)", "1 entry/day limit (free)"],
+      "free_or_paid": "both",
+      "status": "verified",
+      "issues": [
+        {
+          "issue": "Interstitial ad not triggered after journal save",
+          "priority": "P0",
+          "file": "lib/features/zen_journal/presentation/screens/journal_editor_screen.dart",
+          "action": "Added InterstitialAdManager.preload() in initState and onJournalSaved(ref) after save",
+          "resolved": true,
+          "cycle_found": 7,
+          "cycle_resolved": 7
+        }
+      ],
+      "cycle_verified": 7
+    },
+    {
+      "name": "AI Reflection",
+      "section": "3",
+      "features": ["emotion analysis", "pattern insight", "action suggestion", "2/week limit (free)", "weekly report (premium)"],
+      "free_or_paid": "both",
+      "status": "verified",
+      "issues": [
+        {
+          "issue": "Rewarded ad not available when AI reflection limit reached",
+          "priority": "P0",
+          "file": "lib/features/zen_journal/presentation/screens/ai_reflection_screen.dart",
+          "action": "Added RewardedAdButton in limit reached state with _loadReflection() callback",
+          "resolved": true,
+          "cycle_found": 7,
+          "cycle_resolved": 7
+        }
+      ],
+      "cycle_verified": 7
+    },
+    {
+      "name": "Calendar",
+      "section": "8",
+      "features": ["monthly calendar view", "mood heatmap", "date entry navigation"],
+      "free_or_paid": "both",
+      "status": "verified",
+      "issues": [],
+      "cycle_verified": 1
+    },
+    {
+      "name": "Journal List",
+      "section": "8",
+      "features": ["full entry list", "search", "30-day search limit (free)"],
+      "free_or_paid": "both",
+      "status": "verified",
+      "issues": [],
+      "cycle_verified": 1
+    },
+    {
+      "name": "Stats",
+      "section": "4-2",
+      "features": ["weekly mood graph", "monthly mood graph", "streak display", "badges", "tag analysis"],
+      "free_or_paid": "both",
+      "status": "verified",
+      "issues": [],
+      "cycle_verified": 1
+    },
+    {
+      "name": "Settings",
+      "section": "8",
+      "features": ["theme toggle", "backup", "notifications", "subscription management"],
+      "free_or_paid": "both",
+      "status": "verified",
+      "issues": [
+        {
+          "issue": "Export feature shows 'Coming soon' instead of working",
+          "priority": "P1",
+          "file": "lib/features/zen_journal/presentation/screens/settings_screen.dart",
+          "action": "Implemented TXT/JSON/CSV export with share_plus sharing",
+          "resolved": true,
+          "cycle_found": 1,
+          "cycle_resolved": 1
+        },
+        {
+          "issue": "Notification time picker not saving selected time",
+          "priority": "P2",
+          "file": "lib/features/zen_journal/presentation/screens/settings_screen.dart",
+          "action": "Added SharedPreferences persistence for reminder hour/minute",
+          "resolved": true,
+          "cycle_found": 1,
+          "cycle_resolved": 1
+        },
+        {
+          "issue": "Restore Backup shows 'Coming soon'",
+          "priority": "P2",
+          "file": "lib/features/zen_journal/presentation/screens/settings_screen.dart",
+          "action": "Deferred to v1.1 — requires file_picker integration",
+          "resolved": false,
+          "cycle_found": 1,
+          "cycle_resolved": null
+        },
+        {
+          "issue": "Cloud Backup shows 'Coming soon'",
+          "priority": "P2",
+          "file": "lib/features/zen_journal/presentation/screens/settings_screen.dart",
+          "action": "Deferred to v1.1 — requires Google Drive / iCloud API integration",
+          "resolved": false,
+          "cycle_found": 1,
+          "cycle_resolved": null
+        },
+        {
+          "issue": "Privacy Policy and Terms of Service links are empty",
+          "priority": "P3",
+          "file": "lib/features/zen_journal/presentation/screens/settings_screen.dart",
+          "action": "Deferred — requires actual policy URLs after store setup",
+          "resolved": false,
+          "cycle_found": 1,
+          "cycle_resolved": null
+        }
+      ],
+      "cycle_verified": 1
+    },
+    {
+      "name": "Paywall",
+      "section": "7",
+      "features": ["plan comparison", "monthly/yearly/lifetime pricing", "7-day trial", "restore purchases", "fallback when RevenueCat unconfigured"],
+      "free_or_paid": "both",
+      "status": "verified",
+      "issues": [],
+      "cycle_verified": 1
+    }
+  ],
+  "cycle_count": 7,
+  "last_cycle_at": "2026-03-21T12:00:00+09:00",
+  "mode": "complete",
+  "polish_completed": [
+    "1. Screen transition animations — slide up (editor/paywall), fade (reflection/onboarding), slide right (journal list)",
+    "2. Loading shimmer states — shimmer skeleton for stat cards and entry cards on home screen",
+    "3. Micro-interactions — haptic feedback on mood selection, swipe-to-delete already implemented",
+    "4. Accessibility — Semantics labels on mood selector buttons with selected state",
+    "5. Performance — const widget optimization review, ref.watch/ref.read patterns verified correct",
+    "6. Error boundary — global FlutterError.onError + PlatformDispatcher.onError + ErrorScreen widget + ErrorWidget.builder",
+    "7. Offline detection — connectivity_plus StreamProvider + OfflineBanner in shell scaffold",
+    "8. Keyboard handling — GestureDetector with FocusScope.unfocus in journal editor",
+    "9. Tablet/Foldable responsive — ResponsiveCenter widget + isTablet helper for LayoutBuilder",
+    "10. i18n preparation — expanded AppLocalizations with 40+ ZenJournal-specific keys (en/ko/ja)"
+  ]
+}

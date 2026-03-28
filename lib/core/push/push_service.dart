@@ -57,8 +57,8 @@ class PushService {
   }) async {
     const androidDetails = AndroidNotificationDetails(
       'default_channel',
-      '기본 알림',
-      channelDescription: '앱 기본 알림 채널',
+      'Default',
+      channelDescription: 'Default notification channel',
       importance: Importance.high,
       priority: Priority.high,
     );

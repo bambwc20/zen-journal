@@ -5,18 +5,18 @@ import 'package:flutter_boilerplate/shared/widgets/onboarding_flow.dart';
 void main() {
   final testPages = [
     const OnboardingPage(
-      title: '환영합니다',
-      description: '앱을 소개합니다',
+      title: 'Welcome',
+      description: 'Let us introduce the app',
       icon: Icons.star,
     ),
     const OnboardingPage(
-      title: '기능 1',
-      description: '첫 번째 기능입니다',
+      title: 'Feature 1',
+      description: 'This is the first feature',
       icon: Icons.check,
     ),
     const OnboardingPage(
-      title: '준비 완료',
-      description: '준비가 되었습니다',
+      title: 'All Set',
+      description: 'You are ready to go',
       icon: Icons.rocket_launch,
     ),
   ];
@@ -34,9 +34,9 @@ void main() {
         ),
       );
 
-      expect(find.text('환영합니다'), findsOneWidget);
-      expect(find.text('앱을 소개합니다'), findsOneWidget);
-      expect(find.text('다음'), findsOneWidget);
+      expect(find.text('Welcome'), findsOneWidget);
+      expect(find.text('Let us introduce the app'), findsOneWidget);
+      expect(find.text('Next'), findsOneWidget);
       expect(completed, isFalse);
     });
 
@@ -50,13 +50,13 @@ void main() {
         ),
       );
 
-      await tester.tap(find.text('다음'));
+      await tester.tap(find.text('Next'));
       await tester.pumpAndSettle();
 
-      expect(find.text('기능 1'), findsOneWidget);
+      expect(find.text('Feature 1'), findsOneWidget);
     });
 
-    testWidgets('shows 시작하기 on last page', (tester) async {
+    testWidgets('shows Get Started on last page', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: OnboardingFlow(
@@ -67,12 +67,12 @@ void main() {
       );
 
       // Navigate to last page
-      await tester.tap(find.text('다음'));
+      await tester.tap(find.text('Next'));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('다음'));
+      await tester.tap(find.text('Next'));
       await tester.pumpAndSettle();
 
-      expect(find.text('시작하기'), findsOneWidget);
+      expect(find.text('Get Started'), findsOneWidget);
     });
 
     testWidgets('calls onComplete when finishing', (tester) async {
@@ -88,13 +88,13 @@ void main() {
       );
 
       // Navigate to last page
-      await tester.tap(find.text('다음'));
+      await tester.tap(find.text('Next'));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('다음'));
+      await tester.tap(find.text('Next'));
       await tester.pumpAndSettle();
 
-      // Tap 시작하기
-      await tester.tap(find.text('시작하기'));
+      // Tap Get Started
+      await tester.tap(find.text('Get Started'));
       await tester.pumpAndSettle();
 
       expect(completed, isTrue);
@@ -111,7 +111,7 @@ void main() {
         ),
       );
 
-      expect(find.text('건너뛰기'), findsOneWidget);
+      expect(find.text('Skip'), findsOneWidget);
     });
 
     testWidgets('calls onSkip when skip button tapped', (tester) async {
@@ -127,7 +127,7 @@ void main() {
         ),
       );
 
-      await tester.tap(find.text('건너뛰기'));
+      await tester.tap(find.text('Skip'));
       expect(skipped, isTrue);
     });
   });

@@ -47,7 +47,7 @@ class _LockedFeature extends StatelessWidget {
         children: [
           Icon(Icons.lock_outline),
           SizedBox(width: 8),
-          Text('프리미엄 기능'),
+          Text('Premium Feature'),
         ],
       ),
     );

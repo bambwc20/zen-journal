@@ -55,7 +55,7 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
                 alignment: Alignment.topRight,
                 child: TextButton(
                   onPressed: widget.onSkip ?? widget.onComplete,
-                  child: const Text('건너뛰기'),
+                  child: const Text('Skip'),
                 ),
               ),
             Expanded(
@@ -133,7 +133,7 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
                               duration: const Duration(milliseconds: 300),
                               curve: Curves.easeInOut,
                             ),
-                    child: Text(isLast ? '시작하기' : '다음'),
+                    child: Text(isLast ? 'Get Started' : 'Next'),
                   ),
                 ],
               ),

@@ -9,15 +9,15 @@ void main() {
         const MaterialApp(
           home: Scaffold(
             body: ConfirmDialog(
-              title: '삭제하시겠습니까?',
-              content: '이 작업은 되돌릴 수 없습니다.',
+              title: 'Delete this?',
+              content: 'This action cannot be undone.',
             ),
           ),
         ),
       );
 
-      expect(find.text('삭제하시겠습니까?'), findsOneWidget);
-      expect(find.text('이 작업은 되돌릴 수 없습니다.'), findsOneWidget);
+      expect(find.text('Delete this?'), findsOneWidget);
+      expect(find.text('This action cannot be undone.'), findsOneWidget);
     });
 
     testWidgets('returns true on confirm', (tester) async {
@@ -30,7 +30,7 @@ void main() {
               onPressed: () async {
                 result = await ConfirmDialog.show(
                   context,
-                  title: '확인?',
+                  title: 'Are you sure?',
                 );
               },
               child: const Text('Open'),
@@ -42,7 +42,7 @@ void main() {
       await tester.tap(find.text('Open'));
       await tester.pumpAndSettle();
 
-      await tester.tap(find.text('확인'));
+      await tester.tap(find.text('Confirm'));
       await tester.pumpAndSettle();
 
       expect(result, isTrue);
@@ -58,7 +58,7 @@ void main() {
               onPressed: () async {
                 result = await ConfirmDialog.show(
                   context,
-                  title: '확인?',
+                  title: 'Are you sure?',
                 );
               },
               child: const Text('Open'),
@@ -70,7 +70,7 @@ void main() {
       await tester.tap(find.text('Open'));
       await tester.pumpAndSettle();
 
-      await tester.tap(find.text('취소'));
+      await tester.tap(find.text('Cancel'));
       await tester.pumpAndSettle();
 
       expect(result, isFalse);

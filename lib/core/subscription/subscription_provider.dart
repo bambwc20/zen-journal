@@ -1,12 +1,18 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'subscription_provider.g.dart';
 
+/// Whether RevenueCat has been configured.
+/// Set to true in main.dart after successful Purchases.configure().
+bool revenueCatConfigured = false;
+
 @riverpod
 Stream<CustomerInfo> customerInfo(Ref ref) {
+  if (!revenueCatConfigured) return const Stream.empty();
   final controller = StreamController<CustomerInfo>.broadcast();
   final listener = (CustomerInfo info) => controller.add(info);
   Purchases.addCustomerInfoUpdateListener(listener);
@@ -19,6 +25,10 @@ Stream<CustomerInfo> customerInfo(Ref ref) {
 
 @riverpod
 Future<Offerings> offerings(Ref ref) async {
+  if (!revenueCatConfigured) {
+    throw Exception('Subscription service not configured. '
+        'Set REVENUECAT_API_KEY to enable subscriptions.');
+  }
   return await Purchases.getOfferings();
 }
 

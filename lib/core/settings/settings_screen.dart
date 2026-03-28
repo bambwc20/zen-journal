@@ -12,19 +12,19 @@ class SettingsScreen extends ConsumerWidget {
     final settingsAsync = ref.watch(appSettingsProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('설정')),
+      appBar: AppBar(title: const Text('Settings')),
       body: settingsAsync.when(
         data: (settings) => ListView(
           children: [
             ListTile(
               leading: const Icon(Icons.dark_mode),
-              title: const Text('테마'),
+              title: const Text('Theme'),
               subtitle: Text(_themeModeLabel(themeMode)),
               onTap: () => ref.read(appThemeModeProvider.notifier).toggle(),
             ),
             SwitchListTile(
               secondary: const Icon(Icons.notifications),
-              title: const Text('알림'),
+              title: const Text('Notifications'),
               value: settings['notifications_enabled'] as bool,
               onChanged: (value) => ref
                   .read(appSettingsProvider.notifier)
@@ -33,7 +33,7 @@ class SettingsScreen extends ConsumerWidget {
             const Divider(),
             ListTile(
               leading: const Icon(Icons.info_outline),
-              title: const Text('앱 정보'),
+              title: const Text('About'),
               onTap: () => showAboutDialog(
                 context: context,
                 applicationName: 'App',
@@ -43,16 +43,16 @@ class SettingsScreen extends ConsumerWidget {
           ],
         ),
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('오류: $e')),
+        error: (e, _) => Center(child: Text('Error: $e')),
       ),
     );
   }
 
   String _themeModeLabel(ThemeMode mode) {
     return switch (mode) {
-      ThemeMode.system => '시스템',
-      ThemeMode.light => '라이트',
-      ThemeMode.dark => '다크',
+      ThemeMode.system => 'System',
+      ThemeMode.light => 'Light',
+      ThemeMode.dark => 'Dark',
     };
   }
 }

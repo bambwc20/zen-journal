@@ -1,4 +1,4 @@
-package com.indiedev.flutter_boilerplate
+package com.indiedev.zenjournal
 
 import io.flutter.embedding.android.FlutterActivity
 

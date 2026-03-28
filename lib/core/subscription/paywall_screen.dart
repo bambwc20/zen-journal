@@ -15,7 +15,7 @@ class PaywallScreen extends ConsumerWidget {
         child: offeringsAsync.when(
           data: (offerings) => _buildPaywall(context, ref, offerings),
           loading: () => const Center(child: CircularProgressIndicator()),
-          error: (e, _) => Center(child: Text('오류가 발생했습니다: $e')),
+          error: (e, _) => Center(child: Text('Something went wrong: $e')),
         ),
       ),
     );
@@ -28,7 +28,7 @@ class PaywallScreen extends ConsumerWidget {
   ) {
     final current = offerings.current;
     if (current == null) {
-      return const Center(child: Text('구독 상품이 없습니다'));
+      return const Center(child: Text('No subscription products available'));
     }
 
     return Padding(
@@ -39,14 +39,14 @@ class PaywallScreen extends ConsumerWidget {
           const Icon(Icons.star, size: 64, color: Colors.amber),
           const SizedBox(height: 16),
           Text(
-            '프리미엄으로 업그레이드',
+            'Upgrade to Premium',
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
           ),
           const SizedBox(height: 8),
           Text(
-            '모든 기능을 제한 없이 사용하세요',
+            'Unlock all features without limits',
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   color: Colors.grey,
                 ),
@@ -60,12 +60,12 @@ class PaywallScreen extends ConsumerWidget {
             onPressed: () async {
               await SubscriptionService.restorePurchases();
             },
-            child: const Text('구매 복원'),
+            child: const Text('Restore Purchases'),
           ),
           const SizedBox(height: 8),
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('나중에'),
+            child: const Text('Maybe Later'),
           ),
         ],
       ),

@@ -36,7 +36,7 @@ class AppLocalizations {
       'onboarding_done': '시작하기',
     },
     'en': {
-      'app_name': 'App',
+      'app_name': 'ZenJournal',
       'settings': 'Settings',
       'premium': 'Premium',
       'restore_purchases': 'Restore Purchases',
@@ -50,6 +50,42 @@ class AppLocalizations {
       'onboarding_next': 'Next',
       'onboarding_skip': 'Skip',
       'onboarding_done': 'Get Started',
+      // Home
+      'home_greeting_morning': 'Good Morning',
+      'home_greeting_afternoon': 'Good Afternoon',
+      'home_greeting_evening': 'Good Evening',
+      'home_how_feeling': 'How are you feeling today?',
+      'home_write': 'Write',
+      'home_recent_entries': 'Recent Entries',
+      'home_see_all': 'See All',
+      'home_no_entries': 'No entries yet',
+      'home_start_journey': 'Start your journaling journey today!',
+      // Editor
+      'editor_new': 'New Entry',
+      'editor_edit': 'Edit Entry',
+      'editor_placeholder': 'Start writing your thoughts...',
+      'editor_saved': 'Saved successfully',
+      // Stats
+      'stats_current_streak': 'Current Streak',
+      'stats_longest_streak': 'Longest Streak',
+      'stats_total_days': 'Total Days',
+      // Mood
+      'mood_very_bad': 'Very Bad',
+      'mood_bad': 'Bad',
+      'mood_neutral': 'Neutral',
+      'mood_good': 'Good',
+      'mood_very_good': 'Very Good',
+      // AI
+      'ai_reflection': 'AI Reflection',
+      'ai_emotion_analysis': 'Emotion Analysis',
+      'ai_pattern_insight': 'Pattern Insight',
+      'ai_action_suggestion': 'Action Suggestion',
+      // Paywall
+      'paywall_title': 'Upgrade to Pro',
+      'paywall_trial': 'Start your 7-day free trial',
+      'paywall_restore': 'Restore Purchases',
+      // Offline
+      'offline_message': 'You are offline. Some features may be unavailable.',
     },
     'ja': {
       'app_name': 'アプリ',
