@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="base.css">
+<style>
+body {
+  width: {{WIDTH}}px;
+  height: {{HEIGHT}}px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: {{PADDING}};
+  text-align: center;
+}
+.top-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-top: 20px;
+}
+.headline {
+  font-size: {{FONT_SIZE_HEADLINE}}px;
+  font-weight: 800;
+  color: var(--color-text-light);
+  line-height: 1.15;
+  max-width: 90%;
+}
+.subtext {
+  font-size: {{FONT_SIZE_SUB}}px;
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+.phone-area {
+  position: relative;
+  width: {{PHONE_W}}px;
+  height: {{PHONE_H}}px;
+  flex-shrink: 0;
+}
+.phone-mockup-css {
+  width: 100%;
+  height: 100%;
+}
+.phone-mockup-css .screen {
+  border-radius: {{SCREEN_RADIUS}}px;
+}
+.phone-mockup-css .notch {
+  height: {{NOTCH_H}}px;
+}
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 30px;
+}
+.bottom-section .app-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.bottom-section .app-icon { width: 48px; height: 48px; }
+.bottom-section .app-name {
+  font-size: 20px;
+  color: var(--color-text-light);
+  font-weight: 700;
+}
+.cta-button {
+  font-size: {{FONT_SIZE_CTA}}px;
+  padding: {{CTA_PADDING}};
+  width: 70%;
+}
+</style>
+</head><body>
+  <div class="top-section">
+    <div class="headline">{{HEADLINE}}</div>
+    <div class="subtext">{{SUBTEXT}}</div>
+  </div>
+  <div class="phone-area">
+    <div class="phone-mockup-css">
+      <div class="notch"></div>
+      <img class="screen" src="{{SCREENSHOT_PATH}}" alt="app">
+    </div>
+  </div>
+  <div class="bottom-section">
+    <div class="app-info">
+      <img class="app-icon" src="{{ICON_PATH}}" alt="icon">
+      <span class="app-name">{{APP_NAME}}</span>
+    </div>
+    <div class="cta-button">{{CTA}}</div>
+  </div>
+</body></html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="base.css">
+<style>
+body {
+  width: {{WIDTH}}px;
+  height: {{HEIGHT}}px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: {{PADDING}};
+  text-align: center;
+}
+.top-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.app-icon { width: {{ICON_SIZE}}px; height: {{ICON_SIZE}}px; }
+.app-name {
+  font-size: {{FONT_SIZE_NAME}}px;
+  font-weight: 800;
+  color: var(--color-text-light);
+  line-height: 1.1;
+}
+.headline {
+  font-size: {{FONT_SIZE_HEADLINE}}px;
+  font-weight: 700;
+  color: var(--color-secondary);
+  line-height: 1.2;
+}
+.phone-area {
+  position: relative;
+  width: {{PHONE_W}}px;
+  height: {{PHONE_H}}px;
+}
+.phone-mockup-css {
+  width: 100%;
+  height: 100%;
+}
+.phone-mockup-css .screen {
+  border-radius: {{SCREEN_RADIUS}}px;
+}
+.phone-mockup-css .notch {
+  height: {{NOTCH_H}}px;
+}
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0 8px;
+}
+.feature-item { font-size: {{FONT_SIZE_FEATURE}}px; }
+.cta-button {
+  font-size: {{FONT_SIZE_CTA}}px;
+  padding: {{CTA_PADDING}};
+  width: 90%;
+}
+</style>
+</head><body>
+  <div class="top-section">
+    <img class="app-icon" src="{{ICON_PATH}}" alt="icon">
+    <div class="app-name">{{APP_NAME}}</div>
+    <div class="headline">{{HEADLINE}}</div>
+  </div>
+  <div class="phone-area">
+    <div class="phone-mockup-css">
+      <div class="notch"></div>
+      <img class="screen" src="{{SCREENSHOT_PATH}}" alt="app">
+    </div>
+  </div>
+  <div class="features-list">
+    {{FEATURES_HTML}}
+  </div>
+  <div class="cta-button">{{CTA}}</div>
+</body></html>

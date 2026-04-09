@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="base.css">
+<style>
+body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  width: {{WIDTH}}px;
+  height: {{HEIGHT}}px;
+}
+.app-icon { width: {{ICON_SIZE}}px; height: {{ICON_SIZE}}px; flex-shrink: 0; }
+.text-area {
+  flex: 1;
+  padding: 0 10px;
+  overflow: hidden;
+}
+.headline {
+  font-size: {{FONT_SIZE_HEADLINE}}px;
+  font-weight: 700;
+  color: var(--color-text-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.subtext {
+  font-size: {{FONT_SIZE_SUB}}px;
+  color: var(--color-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cta-button {
+  font-size: {{FONT_SIZE_CTA}}px;
+  padding: {{CTA_PADDING}};
+  flex-shrink: 0;
+}
+</style>
+</head><body>
+  <img class="app-icon" src="{{ICON_PATH}}" alt="icon">
+  <div class="text-area">
+    <div class="headline">{{HEADLINE}}</div>
+    <div class="subtext" style="display:{{SHOW_SUBTEXT}}">{{SUBTEXT}}</div>
+  </div>
+  <div class="cta-button">{{CTA}}</div>
+</body></html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="base.css">
+<style>
+body {
+  width: {{WIDTH}}px;
+  height: {{HEIGHT}}px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: {{PADDING}};
+  text-align: center;
+}
+.caption-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-top: {{TOP_PAD}}px;
+}
+.caption-main {
+  font-size: {{FONT_SIZE_CAPTION}}px;
+  font-weight: 800;
+  color: var(--color-text-light);
+  line-height: 1.15;
+  max-width: 85%;
+}
+.caption-sub {
+  font-size: {{FONT_SIZE_SUB}}px;
+  color: var(--color-secondary);
+  font-weight: 600;
+  max-width: 80%;
+}
+.phone-area {
+  position: relative;
+  width: {{PHONE_W}}px;
+  height: {{PHONE_H}}px;
+  flex-shrink: 0;
+}
+.phone-mockup-css {
+  width: 100%;
+  height: 100%;
+}
+.phone-mockup-css .screen {
+  border-radius: {{SCREEN_RADIUS}}px;
+}
+.phone-mockup-css .notch {
+  height: {{NOTCH_H}}px;
+}
+</style>
+</head><body>
+  <div class="caption-area">
+    <div class="caption-main">{{CAPTION}}</div>
+    <div class="caption-sub">{{SUBCAPTION}}</div>
+  </div>
+  <div class="phone-area">
+    <div class="phone-mockup-css">
+      <div class="notch"></div>
+      <img class="screen" src="{{SCREENSHOT_PATH}}" alt="app">
+    </div>
+  </div>
+</body></html>

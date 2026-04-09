@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="file:///Users/bambwc20/projects/Indie_hacker_lecture/script/python/ad_templates/base.css">
+<style>
+body {
+  width: 1024px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 60px;
+}
+.left-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+.app-icon { width: 72px; height: 72px; }
+.app-name {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--color-text-light);
+  line-height: 1.1;
+}
+.tagline {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-secondary);
+  line-height: 1.3;
+}
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.feature-item { font-size: 16px; }
+.phone-area {
+  position: relative;
+  width: 180px;
+  height: 380px;
+  flex-shrink: 0;
+}
+.phone-mockup-css {
+  width: 100%;
+  height: 100%;
+}
+.phone-mockup-css .screen {
+  border-radius: 16px;
+}
+.phone-mockup-css .notch {
+  height: 18px;
+}
+</style>
+</head><body>
+  <div class="left-section">
+    <img class="app-icon" src="/Users/bambwc20/projects/Indie_hacker_lecture/script/python/ad_templates/_placeholder_icon.png" alt="icon">
+    <div class="app-name">ZenJournal</div>
+    <div class="tagline">Smart journaling with real AI reflections</div>
+    <div class="features-list">
+      <div class="feature-item"><span class="check">✓</span> AI Reflections</div>
+    <div class="feature-item"><span class="check">✓</span> Mood Tracking</div>
+    <div class="feature-item"><span class="check">✓</span> Encrypted Backup</div>
+    <div class="feature-item"><span class="check">✓</span> Daily Prompts</div>
+    </div>
+  </div>
+  <div class="phone-area">
+    <div class="phone-mockup-css">
+      <div class="notch"></div>
+      <img class="screen" src="/Users/bambwc20/projects/Indie_hacker_lecture/script/python/ad_templates/_placeholder_screen.png" alt="app">
+    </div>
+  </div>
+</body></html>

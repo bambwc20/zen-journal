@@ -1,0 +1,31 @@
+{
+  "app_name": "ZenJournal",
+  "headline": "AI Journal That Gets You",
+  "subtext": "Smart journaling with real AI reflections",
+  "cta": "Install Free",
+  "features": [
+    "AI Reflections",
+    "Mood Tracking",
+    "Encrypted Backup",
+    "Daily Prompts"
+  ],
+  "captions": [
+    "AI That Actually Understands You",
+    "See Your Emotional Patterns",
+    "Your Thoughts, Encrypted",
+    "Build a Journaling Habit",
+    "Smart Daily Prompts"
+  ],
+  "subcaptions": [
+    "Context-aware AI reflections from your journal history",
+    "Weekly & monthly mood trend visualization",
+    "AES-256 local encryption for your privacy",
+    "Streak system & gentle reminders",
+    "Never face a blank page again"
+  ],
+  "design": {
+    "primary_color": "#6B9B7A",
+    "secondary_color": "#F5E6D3",
+    "style": "warm_friendly"
+  }
+}

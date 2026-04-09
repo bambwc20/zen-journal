@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="base.css">
+<style>
+body {
+  width: {{WIDTH}}px;
+  height: {{HEIGHT}}px;
+  display: flex;
+  flex-direction: {{DIRECTION}};
+  align-items: center;
+  justify-content: center;
+  gap: {{GAP}}px;
+  padding: {{PADDING}};
+}
+.headline {
+  font-size: {{FONT_SIZE_HEADLINE}}px;
+  font-weight: 800;
+  color: var(--color-text-light);
+  text-align: center;
+  line-height: 1.2;
+}
+.phone-area {
+  position: relative;
+  width: {{PHONE_W}}px;
+  height: {{PHONE_H}}px;
+  flex-shrink: 0;
+}
+.phone-area .phone-mockup-css {
+  width: 100%;
+  height: 100%;
+}
+.phone-area .phone-mockup-css .screen {
+  border-radius: {{SCREEN_RADIUS}}px;
+}
+.phone-area .phone-mockup-css .notch {
+  height: {{NOTCH_H}}px;
+}
+.features-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.feature-item { font-size: {{FONT_SIZE_FEATURE}}px; }
+.cta-button {
+  font-size: {{FONT_SIZE_CTA}}px;
+  padding: {{CTA_PADDING}};
+}
+.bottom-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.bottom-bar .app-icon { width: 28px; height: 28px; }
+.bottom-bar .app-name { font-size: 13px; color: var(--color-text-light); font-weight: 600; }
+</style>
+</head><body>
+  <div class="headline">{{HEADLINE}}</div>
+  <div class="phone-area" style="display:{{SHOW_PHONE}}">
+    <div class="phone-mockup-css">
+      <div class="notch"></div>
+      <img class="screen" src="{{SCREENSHOT_PATH}}" alt="app">
+    </div>
+  </div>
+  <div class="features-row" style="display:{{SHOW_FEATURES}}">
+    {{FEATURES_HTML}}
+  </div>
+  <div class="cta-button">{{CTA}}</div>
+</body></html>
